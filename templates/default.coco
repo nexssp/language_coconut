@@ -1,0 +1,7 @@
+def factorial(0) = 1
+
+addpattern def factorial(n is int if n > 0) =
+    """Compute n! where n is an integer >= 0."""
+    range(1, n+1) |> reduce$(*)
+
+print(factorial(5))
