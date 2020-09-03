@@ -2,7 +2,10 @@
 process.env.PYTHONIOENCODING = "UTF-8";
 // process.env.PYTHONOPTIMIZE = 1;
 
-let languageConfig = Object.assign({}, require("../config.win32"));
+let languageConfig = Object.assign(
+  {},
+  require(`../config.${process.platform}`)
+);
 languageConfig.title = "Coconut";
 languageConfig.description =
   "Simple, elegant, Pythonic functional programming.";
