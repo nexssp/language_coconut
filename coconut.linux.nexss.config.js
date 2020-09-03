@@ -1,7 +1,7 @@
 let languageConfig = Object.assign({}, require("./coconut.win32.nexss.config"));
 languageConfig.compilers = {
   coconut: {
-    install: "apt install -y python3.8 python3-pip && pip install coconut",
+    install: "apt install -y python3.8 python3-pip && pip3 install coconut",
     command: "coconut-run",
     args: "<file>",
     help: ``,
