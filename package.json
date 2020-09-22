@@ -1,0 +1,23 @@
+{
+  "name": "language_coconut.git",
+  "version": "1.0.0",
+  "description": "To Install Nexss Programmer please go to [Nexss Programmer CLI](https://github.com/nexssp/cli#readme) for more information.",
+  "main": "coconut.darwin.nexss.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexssp/language_coconut.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexssp/language_coconut/issues"
+  },
+  "homepage": "https://github.com/nexssp/language_coconut#readme",
+  "dependencies": {
+    "@nexssp/os": "^1.0.15"
+  }
+}
