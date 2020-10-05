@@ -15,6 +15,11 @@ languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
+  case os.distros.ALPINE:
+    languageConfig.compilers.coconut.install = os.replacePMByDistro(
+      `${sudo}apt install -y musl-dev py3-pip python3-dev && ${sudo}pip3 install coconut`
+    );
+    break;
   case os.distros.CENTOS:
   case os.distros.RHEL:
   case os.distros.FEDORA:
