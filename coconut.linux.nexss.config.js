@@ -1,6 +1,5 @@
 let languageConfig = Object.assign({}, require("./coconut.win32.nexss.config"));
-const os = require(`${process.env.NEXSS_SRC_PATH}/node_modules/@nexssp/os/`);
-const sudo = os.sudo();
+const sudo = process.sudo;
 languageConfig.compilers = {
   coconut: {
     install: `${sudo}apt install -y gcc python3.8 python3-pip && ${sudo}pip3 install coconut`,
@@ -10,38 +9,38 @@ languageConfig.compilers = {
   },
 };
 
-const distName = os.name();
+const distName = process.distro;
 languageConfig.dist = distName;
 
 // TODO: Later to cleanup this config file !!
 switch (distName) {
-  case os.distros.ALPINE:
-    languageConfig.compilers.coconut.install = os.replacePMByDistro(
+  case process.distros.ALPINE:
+    languageConfig.compilers.coconut.install = process.replacePMByDistro(
       `${sudo}apt install -y musl-dev py3-pip python3-dev && ${sudo}pip3 install coconut`
     );
     break;
-  case os.distros.CENTOS:
-  case os.distros.RHEL:
-  case os.distros.FEDORA:
-    languageConfig.compilers.coconut.install = os.replacePMByDistro(
+  case process.distros.CENTOS:
+  case process.distros.RHEL:
+  case process.distros.FEDORA:
+    languageConfig.compilers.coconut.install = process.replacePMByDistro(
       `${sudo}apt install -y python3-devel && ` +
         languageConfig.compilers.coconut.install
     );
     break;
-  case os.distros.ORACLE:
-    languageConfig.compilers.coconut.install = os.replacePMByDistro(
+  case process.distros.ORACLE:
+    languageConfig.compilers.coconut.install = process.replacePMByDistro(
       `${sudo}apt install -y oracle-epel-release-el7 *python3-dev* && ` +
         languageConfig.compilers.coconut.install
     );
     break;
-  case os.distros.UBUNTU:
-    languageConfig.compilers.coconut.install = os.replacePMByDistro(
+  case process.distros.UBUNTU:
+    languageConfig.compilers.coconut.install = process.replacePMByDistro(
       `${sudo}apt install -y python3-dev && ` +
         languageConfig.compilers.coconut.install
     );
     break;
   default:
-    languageConfig.compilers.coconut.install = os.replacePMByDistro(
+    languageConfig.compilers.coconut.install = process.replacePMByDistro(
       `${sudo}apt install -y *python3-dev* && ` +
         languageConfig.compilers.coconut.install
     );
